@@ -1,10 +1,14 @@
 "use client";
 import React from 'react';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import ProfileDropdown from './dropdown';
 
+interface HeaderMainProps {
+  showSearchBar?: boolean;
+  headerText?: string;
+}
 
-export default function Header() {
-  const isLoggedIn = true; 
+export default function HeaderMain({ showSearchBar = true, headerText }: HeaderMainProps) {
+  const isLoggedIn = true;
 
   return (
     <header className='w-full flex flex-col items-center justify-center gap-y-3'>
@@ -15,7 +19,7 @@ export default function Header() {
           width={50}
           alt="Association Logo"
         />
-      
+
         <div className='flex gap-x-8 items-center'>
           <select
             name="language"
@@ -29,7 +33,7 @@ export default function Header() {
 
           {isLoggedIn ? (
             <div className='flex items-center gap-x-4 cursor-pointer'>
-              <AccountCircleOutlinedIcon sx={{ fontSize: "48px", color: "darkgray",}} />
+              <ProfileDropdown />
             </div>
           ) : (
             <a href="/login">
@@ -41,16 +45,22 @@ export default function Header() {
         </div>
       </div>
       <div className="w-full flex justify-center items-center h-32 bg-gray-800 px-10">
-        <div className="relative w-1/3">
-          <input
-            type="search"
-            name=""
-            id=""
-            className="w-full px-5 py-3 focus:outline-none rounded-full bg-gray-700 text-white pl-12"
-            placeholder="Search Member"
-          />
-          <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-        </div>
+        {showSearchBar ? (
+          <>
+            <div className="relative w-1/3">
+              <input
+                type="search"
+                name=""
+                id=""
+                className="w-full px-5 py-3 focus:outline-none rounded-full bg-gray-700 text-white pl-12"
+                placeholder="Search Member"
+              />
+              <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+          </>
+        ) : (
+          <span className="text-white text-center w-full font-bold text-4xl">{headerText}</span>
+        )}
       </div>
     </header>
   );

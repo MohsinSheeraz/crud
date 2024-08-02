@@ -28,19 +28,21 @@ export default function page() {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <button
+        <a href="/">
+        <button
             type="submit"
             className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Login
           </button>
+        </a>
         </form>
-        <p className="mt-4 text-center text-sm text-gray-600">
+        {/* <p className="mt-4 text-center text-sm text-gray-600">
           Don't have an account?{' '}
           <a href="/register" className="text-blue-600 hover:underline">
             Register
           </a>
-        </p>
+        </p> */}
       </div>
     </div>
   );
