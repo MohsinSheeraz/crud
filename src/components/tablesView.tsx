@@ -7,8 +7,7 @@ const Table: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      // Replace this with your actual data fetching logic
-      const response = []; 
+      const response: React.SetStateAction<never[]> = []; 
       setData(response);
     };
     fetchData();
@@ -17,9 +16,10 @@ const Table: React.FC = () => {
   return (
     <>
       <section className='w-full'>
-        <p className='font-semibold text-4xl capitalize text-center py-5 text-gray-700'>List of members with summary information</p>
+        
         <div className='container mx-auto px-4 py-6'>
           <div className="overflow-x-auto">
+            <p className='font-medium text-lg capitalize'>List of Members:</p>
             <table className="min-w-full shadow-md rounded-xl bg-white">
               <thead className="bg-gray-200 text-gray-700 rounded-md">
                 <tr>
@@ -45,13 +45,13 @@ const Table: React.FC = () => {
                 ) : (
                   data.map((member, index) => (
                     <tr key={index} className="hover:bg-gray-100">
-                      <td className="py-3 px-4 border-b border-gray-300">{member.id}</td>
+                      {/* <td className="py-3 px-4 border-b border-gray-300">{member.id}</td>
                       <td className="py-3 px-4 border-b border-gray-300">{member.firstName}</td>
                       <td className="py-3 px-4 border-b border-gray-300">{member.lastName}</td>
                       <td className="py-3 px-4 border-b border-gray-300">{member.acronym}</td>
                       <td className="py-3 px-4 border-b border-gray-300">{member.association}</td>
                       <td className="py-3 px-4 border-b border-gray-300">{member.promotionYear}</td>
-                      <td className="py-3 px-4 border-b border-gray-300">{member.country}</td>
+                      <td className="py-3 px-4 border-b border-gray-300">{member.country}</td> */}
                     </tr>
                   ))
                 )}

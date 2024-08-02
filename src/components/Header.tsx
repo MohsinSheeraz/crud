@@ -1,5 +1,7 @@
 "use client";
 import React from 'react';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+
 
 export default function Header() {
   const isLoggedIn = true; 
@@ -26,8 +28,8 @@ export default function Header() {
           </select>
 
           {isLoggedIn ? (
-            <div className='flex items-center gap-x-4'>
-              <span className="text-lg">TEXT</span>
+            <div className='flex items-center gap-x-4 cursor-pointer'>
+              <AccountCircleOutlinedIcon sx={{ fontSize: "48px", color: "darkgray",}} />
             </div>
           ) : (
             <a href="/login">
