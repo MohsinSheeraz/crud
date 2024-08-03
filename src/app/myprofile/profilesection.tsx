@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function ProfileSection() {
     const [isEditing, setIsEditing] = useState(false);
-    const [profilePicture, setProfilePicture] = useState("https://www.laraibrabbani.net/_next/image?url=%2FLaraib.jpg&w=540&q=90");
+    const [profilePicture, setProfilePicture] = useState("https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg");
     const [formData, setFormData] = useState({
         firstName: 'First Name',
         lastName: 'Last Name',
@@ -24,8 +24,8 @@ export default function ProfileSection() {
         setIsEditing(!isEditing);
     };
 
-    const handleFileChange = (event: { target: { files: any[]; }; }) => {
-        const file = event.target.files[0];
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files ? event.target.files[0] : null;
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
@@ -35,7 +35,7 @@ export default function ProfileSection() {
         }
     };
 
-    const handleInputChange = (event: { target: { id: any; value: any; }; }) => {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = event.target;
         setFormData({
             ...formData,
@@ -65,13 +65,15 @@ export default function ProfileSection() {
                                     className="hidden"
                                 />
                                 <div className="w-8 h-8 flex items-center justify-center bg-blue-500 text-white rounded-full shadow-md hover:bg-blue-600 transition-colors">
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7M12 5v14M4 8h16"></path></svg>
+                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7M12 5v14M4 8h16"></path>
+                                    </svg>
                                 </div>
                             </label>
                         )}
                     </div>
                     <h1 className="text-2xl font-semibold text-gray-800 mb-2">{formData.firstName}</h1>
-                    <p className="text-center text-gray-600">There'll be Title</p>
+                    <p className="text-center text-gray-600">There will be Title</p>
                 </div>
 
                 {/* Profile Details */}

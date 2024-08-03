@@ -16,7 +16,7 @@ export default function EditProfile() {
                             />
                         </div>
                         <h1 className="text-2xl font-semibold text-gray-800 mb-2">First Name</h1>
-                        <p className="text-center text-gray-600">There'll be Title</p>
+                        <p className="text-center text-gray-600">There will be Title</p>
                     </div>
 
                     {/* Form Section */}
